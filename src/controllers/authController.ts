@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const secret = process.env.SECRET_KEY || 'default_secret_key';
+const secret = 'your_jwt_secret';
 
 export const register = async (req: Request, res: Response) => {
     const { email, password } = req.body;
@@ -51,3 +51,7 @@ export const login = async (req: Request, res: Response) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
+
+export const getUserProfile = (req:any, res:Response) =>{
+    res.json({user: req.user});
+}
